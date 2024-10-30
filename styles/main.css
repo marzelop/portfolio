@@ -23,6 +23,8 @@
 }
 
 body {
+	display: flex;
+	flex-direction: column;
 	background-color: var(--color2);
 }
 
@@ -40,7 +42,7 @@ header {
 
 header h1 {
 	font-size: 30px;
-	margin: 0;
+	margin: 0 10px;
 }
 
 header, footer {
@@ -144,6 +146,11 @@ section {
 	max-height: 280px;
 }
 
+
+#projects {
+	min-height: 350px;
+}
+
 .project-info {
 	display: flex;
 	flex-direction: column;
@@ -199,6 +206,7 @@ footer {
 	background-color: var(--color1);
 	margin: 0;
 	width: 100%;
+	justify-self: end;
 }
 
 #contact-container {
