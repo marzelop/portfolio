@@ -31,18 +31,25 @@ header {
 	background-color: var(--color1);
 	flex-direction: row;
 	justify-content: space-between;
-	padding: 20px;
+	align-items: center;
+	padding: 10px;
+	padding: auto;
 	position: sticky;
 	width: 100%;
 }
 
 header h1 {
 	font-size: 30px;
+	margin: 0;
 }
 
 header, footer {
 	margin-left: 0;
 	margin-right: 0;
+}
+
+#nav-menu {
+	margin: 10px 30px;
 }
 
 #nav-menu .dropdown .dropdown-btn {
@@ -94,12 +101,11 @@ main {
 	display: flex;
 	align-items: baseline;
 	flex-flow: column;
-	margin: 0 auto;
+	margin: 10px auto;
 	width: 70vw;
 	max-width: 1000px;
-	min-width: 500px;
+	min-width: 300px;
 	background-color: var(--color2);
-	padding: 10px;
 }
 
 section {
@@ -110,7 +116,7 @@ section {
 	border: 5px solid var(--color5);
 	border-radius: 10px;
 	padding: 15px;
-	margin: 10px;
+	margin: 10px auto;
 	text-align: justify;
 }
 
@@ -134,8 +140,8 @@ section {
 #profile-photo {
 	border: 5px solid var(--color2);
 	border-radius: 10%;
-	max-width: 300px;
-	max-height: 300px;
+	max-width: 280px;
+	max-height: 280px;
 }
 
 .project-info {
@@ -253,7 +259,28 @@ footer {
 }
 
 @media screen and (max-width: 700px) {
+	main {
+		width: auto;
+		margin-left: 2px;
+		margin-right: 2px;
+	}
+
 	#NIEPx img {
 		width: 250px;
 	}
 }
+
+@media screen and (max-width: 500px) {
+	#profile-photo {
+		width: 220px;
+	}
+
+	#project-selector, #projects {
+		flex-direction: column;
+	}
+
+	#NIEPx img {
+		width: 250px;
+	}
+}
+
