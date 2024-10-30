@@ -1,0 +1,252 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+}
+
+:root {
+	--color1: #141622;
+	--color2: #272935;
+	--color3: #FFFFFF;
+	--color4: #F76497;
+	--color5: #12537E;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	color: white;
+	font-family: "Ubuntu", Arial, sans-serif;
+}
+
+body {
+	background-color: var(--color2);
+}
+
+header {
+	display: flex;
+	background-color: var(--color1);
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 20px;
+	position: sticky
+}
+
+header h1 {
+	font-size: 30px;
+}
+
+#nav-menu .dropdown .dropdown-btn {
+	display: none;
+	width:  35px;
+	height: 35px;
+	border-radius: 10px;
+	background-color: transparent;
+	flex-direction: column;
+	justify-content: space-evenly;
+	padding: 5px;
+	align-items: center;
+	border-color: transparent;
+}
+
+#nav-menu .dropdown .dropdown-btn .sandwich-line{
+	width: 90%;
+	height: 3px;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+#nav-menu .dropdown .dropdown-btn:hover {
+	background-color: var(--color2);
+}
+
+#nav-menu .dropdown .dropdown-content {
+	display: normal;
+}
+
+#nav-menu ul {
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: row;
+}
+
+#nav-menu ul li {
+	list-style: none;
+	margin: 10px 15px;
+}
+
+#nav-menu ul li a {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+main {
+	display: flex;
+	align-items: baseline;
+	flex-flow: column;
+	margin: 0 auto;
+	width: 70vw;
+	max-width: 1000px;
+	min-width: 500px;
+	background-color: var(--color2);
+	padding: 10px;
+}
+
+section {
+	display: flex;
+	align-items: center baseline;
+	justify-content:space-evenly;
+	background-color: var(--color1);
+	border: 5px solid var(--color5);
+	border-radius: 10px;
+	padding: 15px;
+	margin: 10px;
+	text-align: justify;
+}
+
+.section-info {
+	padding: 10px;
+}
+
+.section-info h1, h2, h3, h4, h5, h6, p{
+	margin: 10px 0;
+}
+
+#tech-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#tech-list li {
+	margin: 15px;
+}
+
+#profile-photo {
+	border: 5px solid var(--color2);
+	border-radius: 10%;
+	max-width: 300px;
+	max-height: 300px;
+}
+
+.project-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 5px;
+}
+
+#project-selector {
+	display: flex;
+	flex-direction: column;
+}
+
+button {
+	background-color: var(--color2);
+	border: 2px solid var(--color5);
+	font-size: 20px;
+	margin: 5px 0;
+	padding: 3px;
+}
+
+button:hover {
+	font-weight: bold;
+	border-color: white;
+}
+
+.active {
+	color: var(--color4);
+	border-color: var(--color4);
+}
+
+.active:hover {
+	border-color: white;
+}
+
+#NIEPx img {
+	width: 450px;
+}
+
+a.project-anchor h2 {
+	color: var(--color4);
+	text-decoration: none;
+}
+
+a.project-anchor:hover {
+	text-decoration: underline;
+}
+
+footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color1);
+	margin: 10px auto;
+}
+
+#contact-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+#contact-container img {
+	width:  30px;
+	height: 30px;
+	margin: 10px 30px;
+	border-radius: 10%;
+	background-color: white;
+	border: 2px solid white;
+}
+
+@media screen and (max-width: 900px) {
+	#NIEPx img {
+		width: 350px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#nav-menu .dropdown .dropdown-btn {
+		display: flex;
+	}
+
+	#nav-menu .dropdown .dropdown-content {
+		display: none;
+	}
+
+	#nav-menu .dropdown-content.show {
+		display: block;
+		position: absolute;
+		top: 60px; /* Espaço para ficar abaixo do botão */
+		right: 0;
+		background-color: var(--color2); /* Cor do fundo do dropdown */
+		min-width: 160px;
+		padding: 10px;
+		border-radius: 5px;
+		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+	}
+
+	#nav-menu .dropdown-content.show a {
+		font-size: 15px;
+	}
+
+	#about-me {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#NIEPx img {
+		width: 300px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	#NIEPx img {
+		width: 250px;
+	}
+}

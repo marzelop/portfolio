@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Portfólio</title>
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>Marcelo Pereira</h1>
+    <nav id="nav-menu">
+			<div class="dropdown">
+				<button class="dropdown-btn">
+					<div class="sandwich-line"></div>
+					<div class="sandwich-line"></div>
+					<div class="sandwich-line"></div>
+				</button>
+				<ul class="dropdown-content">
+					<li><a href="#about-me">Sobre</a></li>
+					<li><a href="#projects">Projetos</a></li>
+					<li><a href="#contact">Contato</a></li>
+				</ul>
+			</div>
+    </nav>
+	</header>
+	<main>
+		<section id="about-me">
+			<img id="profile-photo" src="images/foto.jpg" alt="Foto de perfil">
+			<div class="section-info"">
+				<h2>Sobre Mim</h2>
+				<p>Me chamo Marcelo Gyovani Pereira e sou graduando do curso de Ciência da Computação da Universidade Federal do Paraná (UFPR). Sou um membro do laboratório de Segurança e Engenharia Reversa (SECRET) do Departamento de Informática. Tenho interesse na área de redes de computadores.</p>
+				<h2>Tecnologias</h2>
+				<ul id="tech-list">
+					<li>C</li>
+					<li>C++</li>
+					<li>Python</li>
+					<li>Git</li>
+					<li>Linux</li>
+				</ul>
+			</div>
+		</section>
+		<section id="projects">
+			<div>
+				<h2>Projetos</h2>
+				<div id="project-selector">
+					<button onclick="showProject(0)">NIEPx</button>
+					<button onclick="showProject(1)">memalloc</button>
+					<button onclick="showProject(2)">RawVideoServer</button>
+					<button onclick="showProject(3)">Arquivador Vina++</button>
+				</div>
+			</div>
+			<div id="project-display">
+				<div id="NIEPx" class="project-info">
+					<a class="project-anchor" href="https://github.com/marzelop/NIEP-GUI" target="_blank"><h2>NIEPx</h2></a>
+					<img src="images/NIEPx.png" alt="Imagem NIEPx">
+					<p>O NIEPx é uma interface gráfica desenvolvida para a definição e edição de topologias para o <i>NFV Infrastructure Emulation Platform</i> (NIEP), um emulador de redes com suporte a arquitetura NFV. O NIEPx é capaz de criar topologias de uma forma visual intuitiva, possibilitando a configuração, exportação e execução remote de topologias por meio de uma interface HTTP do NIEP.</p>
+					<span><b>Tecnologias:</b> Python e Qt (PySide6)</span>
+				</div>
+				<div id="memalloc" class="project-info">
+					<a class="project-anchor" href="https://github.com/marzelop/memalloc" target="_blank"><h2>memalloc</h2></a>
+					<p>O memalloc é um alocador de memória dinâmica desenvolvido puramente em Assembly AMD64 com uma API para utilizar em C. A estratégia de alocação do memalloc é first-fit, alocando memória no primeiro bloco livre encontrado ou expandindo a heap em caso de ausência de bloco livre grande o suficiente para a memória necessária.</p>
+					<span><b>Tecnologias:</b> Assembly AMD64 (implementação) e C (testes e API)</span>
+				</div>
+				<div id="video-server" class="project-info">
+					<a class="project-anchor" href="https://github.com/marzelop/raw-video-server" target="_blank"><h2>RawVideoServer</h2></a>
+					<p>Esse projeto contém a implementação de um servidor e um cliente utilizando um protocolo próprio de camada de enlace baseado no protocolo <a href="#about-me">Kermit</a> para a transferência de arquivos, não somente vídeos. Foi implementado o ARQ para-e-espera para a comunicação básica das máquinas e o ARQ de janelas deslizantes para a transferência de arquivos. A conexão entre as máquinas deve ser feita diretamente com um cabo ethernet direto nas placas de rede, porque um switch ou roteador iria descartar os pacotes do protocolo de enlace personalizado.</p>
+					<span><b>Tecnologias:</b> C e Raw Sockets</span>
+				</div>
+				<div id="vina" class="project-info">
+					<a class="project-anchor" href="https://github.com/marzelop/vina-" target="_blank"><h2>Arquivador Vina++</h2></a>
+					<p>O Vina++ é um arquivador semelhante ao TAR. O Vina++ arquiva os arquivos desejados em um arquivo VPP, que contém um header no fim do arquivo que descreve os arquivos contidos no VPP, com nome, data, permissões e tamanho. O Vina++ permite a adição, remoção, atualização e movimentação de arquivos dentro do VPP. Além disso, o Vina realiza as operações com os arquivos de forma bufferizada, evitando o carregamento de arquivos massivos na memória principal.</p>
+					<span><b>Tecnologias:</b> C</span>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<h2 id="contact">Contato</h2>
+		<div id="contact-container">
+			<a href="https://www.linkedin.com/in/marcelo-pereira-170607236/?trk=opento_sprofile_goalscard"><img src="images/linkedin-logo.png" alt="LinkedIn Logo"></a>
+			<a href="mailto:marzelop23@gmail.com"><img src="images/email.svg" alt="Email icon"></a>
+			<a href="https://github.com/marzelop"><img src="images/github-mark.svg" alt="GitHub logo"></a>
+		</div>
+	</footer>
+</body>
+<script>
+	/* ALERTA: CÓDIGO TERRÍVEL E INEFICIENTE A FRENTE */
+	var projectDisplay = document.querySelector("#project-display");
+	var projects = projectDisplay.querySelectorAll(".project-info");
+	function hideAllProjects() {
+		projects.forEach(element => {
+			element.style.display = "none";
+		});
+	}
+
+	function showProject(i) {
+		hideAllProjects();
+		let projectSelector = document.querySelector("#project-selector");
+		let projectButtons = projectSelector.querySelectorAll("button");
+
+		projectButtons.forEach((button, idx) => {
+			if (idx === i) {
+				button.classList.add("active");
+			}
+			else {
+				button.classList.remove("active");
+			}
+		})
+
+		projects[i].style.display = "flex";
+	}
+
+	// Seleciona o botão de dropdown e o menu de conteúdo
+	const dropdownBtn = document.querySelector('.dropdown-btn');
+	const dropdownContent = document.querySelector('.dropdown-content');
+	const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+
+	// Alterna a visibilidade ao clicar no botão
+	dropdownBtn.addEventListener('click', function () {
+		dropdownContent.classList.toggle('show');
+	});
+
+	// Fecha o menu ao clicar em um dos links de âncora
+	dropdownLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			dropdownContent.classList.remove('show'); // Remove a classe 'show' para fechar o menu
+		});
+	});
+
+	// Fecha o menu dropdown se o usuário clicar fora dele
+	window.addEventListener('click', function(event) {
+		if (!dropdownBtn.contains(event.target) && !dropdownContent.contains(event.target)) {
+				dropdownContent.classList.remove('show');
+		}
+	});
+	showProject(0);
+</script>
+</html>
